@@ -39,20 +39,7 @@ pandas
 seaborn
 matplotlib
 plotly
-You can install the required libraries using pip:
 
-bash
-Copy
-pip install numpy pandas seaborn matplotlib plotly
-How to Run the Analysis
-Open in Google Colab: To run this project on Google Colab, click here, and upload the world_population_data.csv file.
-
-Load and Process Data: The dataset is read into a Pandas DataFrame using the following command:
-
-python
-Copy
-df = pd.read_csv('/content/world_population_data.csv')
-Exploratory Data Analysis (EDA):
 
 Dataset Overview: Use df.info() to check the structure and df.head() to view the first few rows of the data.
 Summary of Unique Values: Loop through columns to inspect unique values and detect any issues or interesting patterns.
@@ -60,29 +47,6 @@ Data Analysis and Visualization:
 
 Global Population: Calculate the total population in 2023 by summing up the values in the 2023 population column.
 
-python
-Copy
-global_pop = df['2023 population'].sum()
-print(f'{global_pop:,}')
-Population by Continent: Use a bar plot to visualize the population distribution by continent in 2023.
-
-python
-Copy
-px.bar(df.groupby('continent')['2023 population'].sum().reset_index(name='Population'),
-       x='continent', y='Population', title='Population by continent', height=400, width=800)
-Time Series Analysis: Analyze population growth over time for each country and continent. Use px.line() to create line charts showing population trends over the years.
-
-Population Variation: Calculate the difference in population from one year to the next and visualize this variation for each continent using line plots.
-
-Map Visualization: Create a choropleth map showing the population distribution by country in 2023.
-
-python
-Copy
-fig = px.choropleth(df6.groupby('country')['population'].sum().reset_index(),
-                    locations='country', locationmode='country names',
-                    color='population', hover_name='country',
-                    color_continuous_scale='Rainbow')
-Visualizations
 Population by Continent (2023)
 This bar chart displays the population distribution across continents in the year 2023.
 
